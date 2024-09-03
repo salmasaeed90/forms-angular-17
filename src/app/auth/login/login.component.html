@@ -1,0 +1,27 @@
+
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <h2>Login</h2>
+
+  <div class="control-row">
+    <div class="control no-margin">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email"/>
+    </div>
+
+    <div class="control no-margin">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password"/>
+    </div>
+
+    <button class="button">Login</button>
+  </div>
+   <!-- @if(form.form.invalid && email.touched && password.touched){
+    <p class="controll-error">Invalid Values Detected. Please chech your input</p>
+  } -->
+  @if(emailIsInvalid){
+    <p class="controll-error">Invalid Email Address Entered</p>
+  }
+  @if(passwordIsInvalid){
+    <p class="controll-error">Invalid Password Entered(must be atleast 6 char and contains a QuestionMark</p>
+  }
+</form>
